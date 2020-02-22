@@ -1,0 +1,24 @@
+{
+  "name": "node-practice",
+  "version": "0.0.1",
+  "description": "Used to record practice of nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "notes": "cd ./1-notes && node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasOmar/node-practice.git"
+  },
+  "author": "Nicolás Omar González Passerino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NicolasOmar/node-practice/issues"
+  },
+  "homepage": "https://github.com/NicolasOmar/node-practice#readme",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "validator": "^12.2.0"
+  }
+}
