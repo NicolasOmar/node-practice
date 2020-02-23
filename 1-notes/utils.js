@@ -1,11 +1,12 @@
+// IMPORTS
 const chalk = require('chalk')
-// EXPORT
-const text = 'This is an idea.'
-const giveTextLength = (text) => text.length
-const getNotes = () => console.warn(chalk.white.bold.bgGreen('Your notes have been updated.'))
-
+// FUNCTIONS
+const Messages = {
+    success: (msg) => log(chalk.white.bold.bgGreen(msg)),
+    warning: (msg) => log(chalk.white.bold.bgYellow(msg)),
+    fail: (msg) => log(chalk.white.bold.bgRed(msg)),
+}
+const log = (text) => console.log(text)
 module.exports = {
-    text,
-    giveTextLength,
-    getNotes
+    msg: Messages
 };

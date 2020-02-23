@@ -103,5 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-# Txt ouput files
+# Personalized ouput files
 *.txt
+*.json
