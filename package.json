@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "notes": "cd ./1-notes && node app.js",
-    "note-add": "npm run notes add --title='Test Title' --body='Body for the test'"
+    "note-add": "cd ./1-notes && node app.js add --title=\"Test Title\" --body=\"Body for the test\" "
   },
   "repository": {
     "type": "git",
