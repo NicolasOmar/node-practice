@@ -7,6 +7,7 @@ Repository created to record my practice learning NodeJs with exercices based on
 ## Progress
  - Notes app
     - Export and import files
-    - Npm packages usage (chalk, nodemon, yargs)
-    - Use arguments in node commands with yargs
+    - Npm packages management
+    - Improve console prompts with [chalk](https://www.npmjs.com/package/chalk)
+    - Use commands with arguments with [yargs](https://www.npmjs.com/package/yargs)
     - Handle data with JSON

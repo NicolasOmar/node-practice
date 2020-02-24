@@ -1,4 +1,4 @@
-// IMPORTS
+// MODULE IMPORTS
 const chalk = require('chalk')
 // FUNCTIONS
 const Messages = {
@@ -7,6 +7,7 @@ const Messages = {
     fail: (msg) => log(chalk.white.bold.bgRed(msg)),
 }
 const log = (text) => console.log(text)
+
 module.exports = {
     msg: Messages
 };

@@ -1,5 +1,5 @@
 const yargs = require('yargs')
-const handler = require('./notesHandler.js')
+const {addNote, removeNote, listNotes, readNote} = require('./notesHandler.js')
 
 yargs.command({
     command: 'add',
@@ -18,25 +18,40 @@ yargs.command({
     },
     handler: (argv) => {
         const data = {title: argv.title, body: argv.body}
-        handler.addNote(data)
+        addNote(data)
     }
 })
 
 yargs.command({
     command: 'remove',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
     describe: 'Remove a note',
-    handler: () => console.log('Removing the note!')
-})
-
-yargs.command({
-    command: 'read',
-    describe: 'Reading a note',
-    handler: () => console.log('Reading a note!')
+    handler: (argv) => removeNote(argv.title)
 })
 
 yargs.command({
     command: 'list',
     describe: 'List all the notes',
-    handler: () => console.log('Listing all the notes!')
+    handler: () => listNotes()
 })
+
+yargs.command({
+    command: 'read',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    describe: 'Reading a note',
+    handler: (argv) => readNote(argv.title)
+})
+
 console.warn(yargs.argv)

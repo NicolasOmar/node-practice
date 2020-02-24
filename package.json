@@ -1,12 +1,15 @@
 {
   "name": "node-practice",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Used to record practice of nodejs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "notes": "cd ./1-notes && node app.js",
-    "note-add": "cd ./1-notes && node app.js add --title=\"Test Title\" --body=\"Body for the test\" "
+    "note-add": "cd ./1-notes && node app.js add --title=\"Test Title\" --body=\"Body for the test\" ",
+    "note-remove": "cd ./1-notes && node app.js remove --title=\"Test Title\"",
+    "note-list": "cd ./1-notes && node app.js list",
+    "note-read": "cd ./1-notes && node app.js read --title=\"Test Title\""
   },
   "repository": {
     "type": "git",
@@ -21,7 +24,6 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "nodemon": "^2.0.2",
-    "validator": "^12.2.0",
     "yargs": "^15.1.0"
   }
 }
