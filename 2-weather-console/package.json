@@ -1,6 +1,6 @@
 {
-  "name": "weather-app",
-  "version": "0.4.0",
+  "name": "weather-console-app",
+  "version": "1.0.0",
   "description": "Second NodeJs app",
   "main": "app.js",
   "scripts": {

@@ -1,4 +1,4 @@
-const {getLocationAndWeather} = require('./request.js')
+const { getLocationAndWeather } = require('./request.js')
 
 const address = process.argv[2]
 

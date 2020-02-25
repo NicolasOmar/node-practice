@@ -9,7 +9,8 @@ Repository created to record my practice learning NodeJs with exercices based on
 | ------ | ------ |
 | All | npm run setup-all |
 | Notes | npm run setup-notes |
-| Weather | npm run setup-weather |
+| Weather console | npm run setup-weather-console |
+| Weather web | npm run setup-weather-web |
 
 ## How to use it
 To use any app, you just have to enter into it´s folder and run any of the scripts listed on it´s 'package.json' file. Each command runs with the following structure:
@@ -28,14 +29,18 @@ npm start
     - Improve console prompts with [chalk](https://www.npmjs.com/package/chalk)
     - Use commands with arguments with [yargs](https://www.npmjs.com/package/yargs)
     - Handle JSON data
- - Weather app ('2-weather' folder)
+ - Weather console app ('2-weather-console' folder)
     - Understand API documentation to creater better HTTP requests using [DarkSky](darksky.net/dev) and [MapBox](docs.mapbox.com/api) as examples
     - Handle API data with [request](https://www.npmjs.com/package/request)
     - Callback pattern & abstraction
+    - Object destructuring
+ - Weather web app ('3-weather-app' folder)
+    - Create a local server with [express](https://www.npmjs.com/package/express)
+    - Automate server updates with [nodemon](https://www.npmjs.com/package/nodemon)
 
- ## Version (currently v0.1.4)
+ ## Version (currently v0.2.1)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
-| 1 | How many exercises/app i have completed |
-| 4 | How many times i have updated the next exercice/app |
+| 2 | How many exercices/apps i have completed |
+| 1 | How many times i have updated the next exercise/app |

@@ -1,5 +1,5 @@
 const fs = require('fs')
-const {msg} = require('./utils.js')
+const { msg } = require('./utils.js')
 
 const getNotes = () => console.log('test')
 
