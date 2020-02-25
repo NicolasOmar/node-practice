@@ -11,6 +11,12 @@ Repository created to record my practice learning NodeJs with exercices based on
 | Notes | npm run setup-notes |
 | Weather | npm run setup-weather |
 
+## How to use it
+To use any app, you just have to enter into it´s folder and run the scripts listed on it´s 'package.json' file. Each command runs with the following structure
+```sh
+npm run <command-name>
+```
+
 ## Repo Structure & Content
  - Notes app ('1-notes' folder)
     - Export and import files
@@ -19,12 +25,12 @@ Repository created to record my practice learning NodeJs with exercices based on
     - Use commands with arguments with [yargs](https://www.npmjs.com/package/yargs)
     - Handle JSON data
  - Weather app ('2-weather' folder)
-    - Use API documentation to improve HTTP requests using [DarkSky](darksky.net/dev) as example
+    - Understand API documentation to creater better HTTP requests using [DarkSky](darksky.net/dev) and [MapBox](docs.mapbox.com/api) as examples
     - Handle API data with [request](https://www.npmjs.com/package/request)
 
- ## Version (currently v0.1.2)
+ ## Version (currently v0.1.3)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
-| 1 | First exercise has been completed |
-| 2 | Second exercice´s second version has been uploaded |
+| 1 | How many exercises/app i have completed |
+| 3 | How many times i have updated the next exercice/app |
