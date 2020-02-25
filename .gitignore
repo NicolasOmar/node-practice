@@ -106,3 +106,4 @@ dist
 # Personalized ouput files
 *.txt
 *.json
+!package.json

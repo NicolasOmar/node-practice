@@ -1,15 +1,12 @@
 {
   "name": "node-practice",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Used to record practice of nodejs",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "notes": "cd ./1-notes && node app.js",
-    "note-add": "cd ./1-notes && node app.js add --title=\"Test Title\" --body=\"Body for the test\" ",
-    "note-remove": "cd ./1-notes && node app.js remove --title=\"Test Title\"",
-    "note-list": "cd ./1-notes && node app.js list",
-    "note-read": "cd ./1-notes && node app.js read --title=\"Test Title\""
+    "setup-notes": "cd ./1-notes && npm i",
+    "setup-weather": "cd ./2-weather && npm i",
+    "setup-all": "npm run setup-notes && npm run setup-weather"
   },
   "repository": {
     "type": "git",
@@ -20,10 +17,5 @@
   "bugs": {
     "url": "https://github.com/NicolasOmar/node-practice/issues"
   },
-  "homepage": "https://github.com/NicolasOmar/node-practice#readme",
-  "dependencies": {
-    "chalk": "^3.0.0",
-    "nodemon": "^2.0.2",
-    "yargs": "^15.1.0"
-  }
+  "homepage": "https://github.com/NicolasOmar/node-practice#readme"  
 }

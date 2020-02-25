@@ -1,0 +1,16 @@
+{
+  "name": "weather-app",
+  "version": "0.2.0",
+  "description": "Second NodeJs app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Nicolás Omar González Passerino",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "request": "^2.88.2"
+  }
+}
