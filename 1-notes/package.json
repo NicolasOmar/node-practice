@@ -5,11 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "note-add": "node app.js add --title=\"Test Title\" --body=\"Body for the test\" ",
-    "note-remove": "node app.js remove --title=\"Test Title\"",
+    "start": "npm run note-add && npm run note-read && npm run note-list && npm run note-remove && npm run note-list",
+    "note-add": "node app.js add --title=\"Fisrt Title\" --body=\"Body for the test\" && node app.js add --title=\"Second Title\" --body=\"Body for the test\"",
+    "note-remove": "node app.js remove --title=\"Fisrt Title\"",
     "note-list": "node app.js list",
-    "note-read": "node app.js read --title=\"Test Title\""
+    "note-read": "node app.js read --title=\"Fisrt Title\""
   },
   "author": "Nicolás Omar González Passerino",
   "license": "MIT",

@@ -54,4 +54,4 @@ yargs.command({
     handler: (argv) => readNote(argv.title)
 })
 
-console.warn(yargs.argv)
+console.log(yargs.argv)
