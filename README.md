@@ -37,10 +37,11 @@ npm start
  - Weather web app ('3-weather-app' folder)
     - Create a local server with [express](https://www.npmjs.com/package/express)
     - Automate server updates with [nodemon](https://www.npmjs.com/package/nodemon)
+    - Load dynamic & partial views with [hbs](https://www.npmjs.com/package/hbs) and inject them data
 
- ## Version (currently v0.2.1)
+ ## Version (currently v0.2.2)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 2 | How many exercices/apps i have completed |
-| 1 | How many times i have updated the next exercise/app |
+| 2 | How many times i have updated the next exercise/app |

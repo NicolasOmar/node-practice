@@ -1,16 +1,17 @@
 {
   "name": "weather-web-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/app.js"
+    "start": "nodemon ./src/app.js -e js,hbs"
   },
   "author": "Nicolás Omar González Passerino",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "hbs": "^4.1.0",
     "nodemon": "^2.0.2"
   }
 }
