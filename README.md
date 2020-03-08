@@ -38,11 +38,13 @@ npm start
     - Create a local server with [express](https://www.npmjs.com/package/express)
     - Automate server updates with [nodemon](https://www.npmjs.com/package/nodemon)
     - Load dynamic & partial views with [hbs](https://www.npmjs.com/package/hbs) and inject them data
-    - Build a JSON HTTP endpoint (using files and knowledge from exercise #2)
+    - Build a JSON HTTP endpoint (using files, packages and knowledge from exercise #2)
+    - How to fetch data from the internal url (based on previous point) on a javascript file
+    - Use user interaction (by a search form) to make API requests based on user data input and return a result
 
- ## Version (currently v0.2.3)
+ ## Version (currently v0.3.0)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
-| 2 | How many exercices/apps i have completed |
-| 3 | How many times i have updated the next exercise/app |
+| 3 | How many exercices/apps i have completed |
+| 0 | How many times i have updated the next exercise/app |

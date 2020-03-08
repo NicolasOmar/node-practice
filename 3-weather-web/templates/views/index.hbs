@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<head>
-  <title>Weather App - Home</title>
-  <link rel="stylesheet" href="./css/styles.css"></style>
-  <script src="./js/scripts.js"></script>
-</head>
-<body>
-  {{>header}}
-  <div class="main-content">
-    <h2>Hello there!</h2>
-  </div>
-  {{>footer}}
-</body>
+<html>
+  <head>
+    <title>Weather App - Home</title>
+    <link rel="stylesheet" href="./css/styles.css"></style>
+  </head>
+  <body>
+    {{>header}}
+    <div class="main-content">
+      <h2>Hello there!</h2>
+      <form>
+        <input type="text" placeholder="Provide a valid location"/>
+        <button type="submit">Search</button>
+      </form>
+
+      <p id="result-paragraph"></p>
+    </div>
+    {{>footer}}
+
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>
