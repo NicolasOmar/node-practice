@@ -7,7 +7,8 @@
     "setup-notes": "cd ./1-notes && npm i",
     "setup-weather-console": "cd ./2-weather-console && npm i",
     "setup-weather-web": "cd ./3-weather-web && npm i",
-    "setup-all": "npm run setup-notes && npm run setup-weather-console && npm run setup-weather-web"
+    "setup-task-manager": "cd ./4-task-manager && npm i",
+    "setup-all": "npm run setup-notes && npm run setup-weather-console && npm run setup-weather-web && npm run setup-task-manager"
   },
   "repository": {
     "type": "git",
