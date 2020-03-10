@@ -44,11 +44,14 @@ npm start
     - Use user interaction (by a search form) to make API requests based on user data input and return a result
  - Task manager app ('4-task-manager' folder)
     - How to create a Mongo database and connect from Node with [mongodb](https://www.npmjs.com/package/mongodb)
-    - Create, Read, Update & Delete operations on a Mongo database
+    - How to handle CRUD operations (Create, Read, Update & Delete) in a Mongo database
+    - Improve Mongo CRUD operations using a Object-document mapper with [mongoose](https://www.npmjs.com/package/mongoose)
+    - Improve Mongoose model validations with [validator](https://www.npmjs.com/package/validator)
+    - Create a REST API structure
 
- ## Version (currently v0.3.0)
+ ## Version (currently v0.3.2)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 3 | How many exercices/apps i have completed |
-| 1 | How many times i have updated the next exercise/app |
+| 2 | How many times i have updated the next exercise/app |
