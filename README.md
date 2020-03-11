@@ -23,7 +23,7 @@ In case you want to run all available commands on a row, execute the following c
 npm start
 ```
 
-## Repo Structure & Content
+## Repo Structure & what i learned
  - Notes app ('1-notes' folder)
     - Export and import files
     - Npm packages management
@@ -48,7 +48,7 @@ npm start
     - Improve Mongo CRUD operations using a Object-document mapper with [mongoose](https://www.npmjs.com/package/mongoose)
     - Improve Mongoose model validations with [validator](https://www.npmjs.com/package/validator)
     - Create a REST API structure
-    - Promise chaining to avoid callback nesting
+    - Use promise chaining to avoid callback nesting
     - Async/Await functions
 
  ## Version (currently v0.3.3)

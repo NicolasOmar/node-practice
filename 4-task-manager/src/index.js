@@ -6,11 +6,12 @@ require('./db/mongoose')
 const app = express()
 const port = process.env.PORT || 3000
 
-app.use(express.json())
+const tasksRouter = require('./routes/tasks')
+const usersRouter = require('./routes/users')
 
-// IMPORT API FILES
-require('./api/users')(app)
-require('./api/tasks')(app)
+app.use(express.json())
+app.use(tasksRouter)
+app.use(usersRouter)
 
 app.listen(
   port,
