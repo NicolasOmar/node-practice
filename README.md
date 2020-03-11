@@ -48,10 +48,12 @@ npm start
     - Improve Mongo CRUD operations using a Object-document mapper with [mongoose](https://www.npmjs.com/package/mongoose)
     - Improve Mongoose model validations with [validator](https://www.npmjs.com/package/validator)
     - Create a REST API structure
+    - Promise chaining to avoid callback nesting
+    - Async/Await functions
 
- ## Version (currently v0.3.2)
+ ## Version (currently v0.3.3)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 3 | How many exercices/apps i have completed |
-| 2 | How many times i have updated the next exercise/app |
+| 3 | How many times i have updated the next exercise/app |

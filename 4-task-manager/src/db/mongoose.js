@@ -6,6 +6,7 @@ mongoose.connect(
   `${strings.connectionUrl}/${strings.db}`,
   {
     useNewUrlParser: true,
-    useCreateIndex: true //ACCESS TO DATA NEEDED
+    useCreateIndex: true, //ACCESS TO DATA NEEDED
+    useFindAndModify: true
   }
 )
