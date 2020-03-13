@@ -30,6 +30,20 @@ router.get(
   }
 )
 
+// LOGIN A USER
+router.post(
+  '/users/login',
+  async(request, response) => {
+    try {
+      const userLogged = await User.findByCredentials(request.body.email, request.body.password)
+      const token = await userLogged.generateAuthToken()
+      response.send({ userLogged, token })
+    } catch (error) {
+      response.status(400).send(error)
+    }
+  }
+)
+
 // INSERT A NEW USER
 router.post( 
   '/users',
@@ -38,7 +52,8 @@ router.post(
 
     try {
       await newUser.save()
-      response.status(201).send(newUser)
+      const token = await newUser.generateAuthToken()
+      response.status(201).send({ newUser, token})
     } catch (error) {
       response.status(400).send(error)
     }
@@ -49,6 +64,7 @@ router.post(
 router.patch(
   '/users/:id',
   async(request, response) => {
+    const updates = Object.keys(request.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
 
     const isValidOperation = 
@@ -59,11 +75,11 @@ router.patch(
     !isValidOperation && response.status(400).send({ error: 'invalid updates'})
 
     try {
-      const updatedUser =
-        await User.findByIdAndUpdate(
-          request.params.id,
-          request.body,
-          { new: true, runValidators: true })
+      const updatedUser = await User.findById(request.params.id)
+
+      updates.forEach(update => updatedUser[update] = request.body[update])
+      await updatedUser.save()
+
       !updatedUser && response.status(404).send()
       response.send(updatedUser)
     } catch (error) {

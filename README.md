@@ -3,6 +3,10 @@ Repository created to record my practice learning NodeJs with exercices based on
 
 ## Requirements
  - [Node](https://nodejs.org/en/download/) v10.16.3 or above
+ - From the fourth excercise and above
+   - [MongoDB](https://www.mongodb.com/download-center/community) v4.2.3 or above
+   - [Robo 3T](https://robomongo.org/download) to visualize data
+   - [Postman](https://www.postman.com/downloads/) to test endopints
 
 ## Setup
 | App Setup | Command |
@@ -13,7 +17,7 @@ Repository created to record my practice learning NodeJs with exercices based on
 | Weather web | npm run setup-weather-web |
 | Task manager | npm run setup-task-manager |
 
-## How to use it
+## How to run it
 To use any app, you just have to enter into it´s folder and run any of the scripts listed on it´s 'package.json' file. Each command runs with the following structure:
 ```sh
 npm run <command-name>
@@ -50,10 +54,13 @@ npm start
     - Create a REST API structure
     - Use promise chaining to avoid callback nesting
     - Async/Await functions
+    - Mongoose middleware (in case of saving/updating an user password)
+    - Use password encryption with [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+    - JWT (JSON Web Toked) integration with [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 
- ## Version (currently v0.3.3)
+ ## Version (currently v0.3.4)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 3 | How many exercices/apps i have completed |
-| 3 | How many times i have updated the next exercise/app |
+| 4 | How many times i have updated the next exercise/app |

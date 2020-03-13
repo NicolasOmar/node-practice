@@ -5,11 +5,12 @@ require('./db/mongoose')
 // IMPORT AND SET EXPRESS SERVER
 const app = express()
 const port = process.env.PORT || 3000
-
+// IMPORT ROUTERS
 const tasksRouter = require('./routes/tasks')
 const usersRouter = require('./routes/users')
 
 app.use(express.json())
+// INTEGRATE ROUTERS TO THE INDEX FILE
 app.use(tasksRouter)
 app.use(usersRouter)
 
