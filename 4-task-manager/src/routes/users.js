@@ -1,13 +1,11 @@
 const express = require('express')
 const router = new express.Router()
-const auth = require('../middleware/auth')
 // IMPORT MODEL
 const User = require('../models/user')
 
 // FIND ALL THE USERS
 router.get(
   '/users',
-  auth,
   async (request, response) => {
     try {
       const users = await User.find({})
@@ -18,20 +16,21 @@ router.get(
   }
 )
 
-// FIND YOUR USER DATA
+// FIND AN USER USING ID ONLY
 router.get(
-  '/users/me',
-  auth,
+  '/users/:id',
   async (request, response) => {
     try {
-      response.send(request.user)
+      const user = await User.findById(request.params.id)
+      !user && response.status(404).send()
+      response.send(user)
     } catch (error) {
       response.status(400).send(error)
     }
   }
 )
 
-// LOGIN AN USER
+// LOGIN A USER
 router.post(
   '/users/login',
   async(request, response) => {
@@ -41,36 +40,6 @@ router.post(
       response.send({ userLogged, token })
     } catch (error) {
       response.status(400).send(error)
-    }
-  }
-)
-
-router.post(
-  '/users/logout',
-  auth,
-  async (request, response) => {
-    try {
-      request.user.tokens = request.token.tokens.filter(
-        token => token.token !== request.token
-      )
-      await request.user.save()
-      response.send()
-    } catch (error) {
-      response.status(500).send()
-    }
-  }
-)
-
-router.post(
-  '/users/logoutAll',
-  auth,
-  async (request, response) => {
-    try {
-      request.user.tokens = []
-      await request.user.save()
-      response.send()
-    } catch (error) {
-      response.status(500).send()
     }
   }
 )
@@ -93,8 +62,7 @@ router.post(
 
 // UPDATE AN USER DATA
 router.patch(
-  '/users/me',
-  auth,
+  '/users/:id',
   async(request, response) => {
     const updates = Object.keys(request.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
@@ -107,11 +75,13 @@ router.patch(
     !isValidOperation && response.status(400).send({ error: 'invalid updates'})
 
     try {
-      updates.forEach(update => request.user[update] = request.body[update])
-      await request.user.save()
+      const updatedUser = await User.findById(request.params.id)
 
-      !request.user && response.status(404).send()
-      response.send(request.user)
+      updates.forEach(update => updatedUser[update] = request.body[update])
+      await updatedUser.save()
+
+      !updatedUser && response.status(404).send()
+      response.send(updatedUser)
     } catch (error) {
       response.status(400).send(error)
     }

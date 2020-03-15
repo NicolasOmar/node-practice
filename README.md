@@ -53,12 +53,10 @@ npm start
     - Improve Mongoose model validations with [validator](https://www.npmjs.com/package/validator)
     - Create a REST API structure
     - Use promise chaining to avoid callback nesting
-    - How to use Async/Await functions
-    - Use Mongoose middleware at Model and endpoint level
+    - Async/Await functions
+    - Mongoose middleware (in case of saving/updating an user password)
     - Use password encryption with [bcryptjs](https://www.npmjs.com/package/bcryptjs)
-    - JWT (JSON Web Token) integration with [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
-    - How to test API endpoints with [Postman](https://www.postman.com) (learning about Requests, Collections and Environments)
-    - Create documents relationships based on document´s ids, getting them by <Model.populate> and virtual fields
+    - JWT (JSON Web Toked) integration with [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 
  ## Version (currently v0.3.4)
 | Number | Meaning |

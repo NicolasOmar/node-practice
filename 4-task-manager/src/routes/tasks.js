@@ -1,15 +1,13 @@
 const express = require('express')
 const router = new express.Router()
-const auth = require('../middleware/auth')
 // IMPORT MODEL
 const Task = require('../models/task')
 
 router.get(
     '/tasks',
-    auth,
     async (request, response) => {
       try {
-        const tasks = await Task.find({ author: request.user._id })
+        const tasks = await Task.find({})
         response.status(201).send(tasks)
       } catch (error) {
         response.status(400).send(error)
@@ -19,10 +17,9 @@ router.get(
 
 router.get(
     '/tasks/:id',
-    auth,
     async (request, response) => {
       try {
-        const task = await Task.findOne({ _id: request.params.id, author: request.user._id })
+        const task = await Task.findById(request.params.id)
         !task && response.status(404).send()
         response.send(task)
       } catch (error) {
@@ -33,12 +30,8 @@ router.get(
   
 router.post(
     '/tasks',
-    auth,
     async (request, response) => {
-      const newTask = new Task({
-        ...request.body,
-        author: request.user._id
-      })
+      const newTask = new Task(request.body)
 
       try {
         await newTask.save()
@@ -51,7 +44,6 @@ router.post(
   
 router.patch(
   '/tasks/:id',
-  auth,
   async(request, response) => {
     const updates = Object.keys(request.body)
     const allowedUpdates = ['completed', 'description']
@@ -64,7 +56,7 @@ router.patch(
     !isValidOperation && response.status(400).send({ error: 'invalid updates'})
 
     try {
-      const updatedTask = await Task.findOne({ _id: request.params.id, author: request.user._id })
+      const updatedTask = await Task.findById(request.params.id)
 
       updates.forEach(update => updatedTask[update] = request.body[update])
 
@@ -80,10 +72,9 @@ router.patch(
   
 router.delete(
   '/tasks/:id',
-  auth,
   async (request, response) => {
     try {
-      const deletedTask = await Task.findOneAndDelete({ _id: request.params.id, author: request.user._id })
+      const deletedTask = await Task.findByIdAndDelete(request.params.id)
       !deletedTask && response.status(404).send()
       response.send(deletedTask)
     } catch (error) {
