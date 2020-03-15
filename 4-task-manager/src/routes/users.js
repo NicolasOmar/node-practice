@@ -1,11 +1,14 @@
 const express = require('express')
 const router = new express.Router()
+// IMPORT MIDDLEWARE
+const auth = require('../middleware/auth')
 // IMPORT MODEL
 const User = require('../models/user')
 
 // FIND ALL THE USERS
 router.get(
   '/users',
+  auth,
   async (request, response) => {
     try {
       const users = await User.find({})
@@ -16,28 +19,13 @@ router.get(
   }
 )
 
-// FIND AN USER USING ID ONLY
+// FIND YOUR USER DATA
 router.get(
-  '/users/:id',
+  '/users/me',
+  auth,
   async (request, response) => {
     try {
-      const user = await User.findById(request.params.id)
-      !user && response.status(404).send()
-      response.send(user)
-    } catch (error) {
-      response.status(400).send(error)
-    }
-  }
-)
-
-// LOGIN A USER
-router.post(
-  '/users/login',
-  async(request, response) => {
-    try {
-      const userLogged = await User.findByCredentials(request.body.email, request.body.password)
-      const token = await userLogged.generateAuthToken()
-      response.send({ userLogged, token })
+      response.send(request.user)
     } catch (error) {
       response.status(400).send(error)
     }
@@ -60,9 +48,10 @@ router.post(
   }
 )
 
-// UPDATE AN USER DATA
+// UPDATE YOUR USER DATA
 router.patch(
-  '/users/:id',
+  '/users/me',
+  auth,
   async(request, response) => {
     const updates = Object.keys(request.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
@@ -75,29 +64,74 @@ router.patch(
     !isValidOperation && response.status(400).send({ error: 'invalid updates'})
 
     try {
-      const updatedUser = await User.findById(request.params.id)
+      updates.forEach(update => request.user[update] = request.body[update])
+      await request.user.save()
 
-      updates.forEach(update => updatedUser[update] = request.body[update])
-      await updatedUser.save()
-
-      !updatedUser && response.status(404).send()
-      response.send(updatedUser)
+      !request.user && response.status(404).send()
+      response.send(request.user)
     } catch (error) {
       response.status(400).send(error)
     }
   }
 )
 
-// DELETE AN USER
+// DELETE YOUR USER
 router.delete(
-  '/users/:id',
+  '/users/me',
+  auth,
   async (request, response) => {
     try {
-      const deletedUser = await User.findByIdAndDelete(request.params.id)
-      !deletedUser && response.status(404).send()
-      response.send(deletedUser)
+      await request.user.remove()
+      response.send(request.user)
     } catch (error) {
       response.status(400).send(error)
+    }
+  }
+)
+
+// LOGIN AN USER
+router.post(
+  '/users/login',
+  async(request, response) => {
+    try {
+      const { email, password } = request.body
+      const userLogged = await User.findByCredentials(email, password)
+      const token = await userLogged.generateAuthToken()
+      response.send({ userLogged, token })
+    } catch (error) {
+      response.status(400).send(error)
+    }
+  }
+)
+
+// LOGOUT YOUR USER FROM ONE DEVICE USING ITS TOKEN
+router.post(
+  '/users/logout',
+  auth,
+  async (request, response) => {
+    try {
+      request.user.tokens = request.token.tokens.filter(
+        token => token.token !== request.token
+      )
+      await request.user.save()
+      response.send()
+    } catch (error) {
+      response.status(500).send()
+    }
+  }
+)
+
+// LOGOUT YOUR USER FROM ALL CONNECTED DEVICES
+router.post(
+  '/users/logoutAll',
+  auth,
+  async (request, response) => {
+    try {
+      request.user.tokens = []
+      await request.user.save()
+      response.send()
+    } catch (error) {
+      response.status(500).send()
     }
   }
 )
