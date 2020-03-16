@@ -62,11 +62,12 @@ npm start
     - Use Timestamps to record create and update dates
     - Add filtering, pagination and sorting in a GET endpoint
     - Upload files using [Multer](https://www.npmjs.com/package/multer)
-    - Handle images in an endpoint and save them in a Mongo database 
+    - Handle images in an endpoint and save them in a Mongo database
+    - Use and implement environment variables with [env-cmd](https://www.npmjs.com/package/env-cmd)
 
-## Version (currently v0.3.6)
+## Version (currently v0.3.7)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 3 | How many exercices/apps i have completed |
-| 6 | How many times i have updated the next exercise/app |
+| 7 | How many times i have updated the next exercise/app |

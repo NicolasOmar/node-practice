@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
-// STRING FILE TO REDUCE HARDCODED CODE
-const dataBase = require('../../configs/db')
 
 mongoose.connect(
-  `${dataBase.connectionUrl}/${dataBase.name}`,
+  `${process.env.CONNECTION_URL}/${process.env.DATABASE}`,
   {
     useNewUrlParser: true,
     useCreateIndex: true, //ACCESS TO DATA NEEDED

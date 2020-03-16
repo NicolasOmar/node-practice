@@ -1,12 +1,12 @@
 {
   "name": "4-task-manager",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "env-cmd -f ./configs/dev.env nodemon src/index.js"
   },
   "author": "Nicolás Omar González Passerino",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "validator": "^12.2.0"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.2"
   }
 }

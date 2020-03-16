@@ -7,7 +7,7 @@ const strings = require('../../configs/strings')
 const auth = async (request, response, next) => {
   try {
     const token = request.header('Authorization').replace('Bearer ', '')
-    const decodedToken = jwt.verify(token, 'iamtestingthelibrary')
+    const decodedToken = jwt.verify(token, process.env.JWT_SECTRET)
     const finded = await User.findOne({ _id: decodedToken._id, 'tokens.token': token })
 
     if (!finded) {

@@ -4,7 +4,7 @@ const chalk = require('chalk')
 require('./db/mongoose')
 // IMPORT AND SET EXPRESS SERVER
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT
 // IMPORT ROUTERS
 const tasksRouter = require('./routes/tasks')
 const usersRouter = require('./routes/users')
