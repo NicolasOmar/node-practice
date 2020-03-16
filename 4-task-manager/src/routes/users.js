@@ -1,14 +1,16 @@
 const express = require('express')
 const router = new express.Router()
 // IMPORT MIDDLEWARE
-const auth = require('../middleware/auth')
+const authenticator = require('../middleware/auth')
 // IMPORT MODEL
 const User = require('../models/user')
+// IMPORT STRINGS
+const strings = require('../../configs/strings')
 
 // FIND ALL THE USERS
 router.get(
   '/users',
-  auth,
+  authenticator,
   async (request, response) => {
     try {
       const users = await User.find({})
@@ -22,7 +24,7 @@ router.get(
 // FIND YOUR USER DATA
 router.get(
   '/users/me',
-  auth,
+  authenticator,
   async (request, response) => {
     try {
       response.send(request.user)
@@ -51,7 +53,7 @@ router.post(
 // UPDATE YOUR USER DATA
 router.patch(
   '/users/me',
-  auth,
+  authenticator,
   async(request, response) => {
     const updates = Object.keys(request.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
@@ -61,7 +63,7 @@ router.patch(
         update => allowedUpdates.includes(update)
       )
     
-    !isValidOperation && response.status(400).send({ error: 'invalid updates'})
+    !isValidOperation && response.status(400).send({ error: strings.invalid.updates})
 
     try {
       updates.forEach(update => request.user[update] = request.body[update])
@@ -78,7 +80,7 @@ router.patch(
 // DELETE YOUR USER
 router.delete(
   '/users/me',
-  auth,
+  authenticator,
   async (request, response) => {
     try {
       await request.user.remove()
@@ -107,7 +109,7 @@ router.post(
 // LOGOUT YOUR USER FROM ONE DEVICE USING ITS TOKEN
 router.post(
   '/users/logout',
-  auth,
+  authenticator,
   async (request, response) => {
     try {
       request.user.tokens = request.token.tokens.filter(
@@ -124,7 +126,7 @@ router.post(
 // LOGOUT YOUR USER FROM ALL CONNECTED DEVICES
 router.post(
   '/users/logoutAll',
-  auth,
+  authenticator,
   async (request, response) => {
     try {
       request.user.tokens = []

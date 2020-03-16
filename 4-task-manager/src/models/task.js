@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
-const Task = mongoose.model(
-  'Task',
+const taskSchema = new mongoose.Schema(
   {
     description: {
       type: String,
@@ -13,11 +12,13 @@ const Task = mongoose.model(
       default: false
     },
     author: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId, // MONGOOSE TYPE USED TO HANDLE OBJECTID (LIKE A FOREIGN KEY IN SQL)
       required: true,
-      ref: 'User'
+      ref: 'User' // MAKES REFERENCE TO THE DOCUMENT TYPE (AN USED RELATED TO THIS TASK)
     }
+  }, {
+    timestamps: true // ADDED TO SET 'CREATEDAT' AND 'UPDATEDAT' FIELDS, HELPING SORTING FEATURE
   }
 )
 
-module.exports = Task
+module.exports = mongoose.model('Task', taskSchema)

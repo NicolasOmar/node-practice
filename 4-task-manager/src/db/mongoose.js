@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
-
-const strings = require('../../configs/strings.js')
+// STRING FILE TO REDUCE HARDCODED CODE
+const dataBase = require('../../configs/db')
 
 mongoose.connect(
-  `${strings.connectionUrl}/${strings.db}`,
+  `${dataBase.connectionUrl}/${dataBase.name}`,
   {
     useNewUrlParser: true,
     useCreateIndex: true, //ACCESS TO DATA NEEDED
-    useFindAndModify: true
+    useFindAndModify: true,
+    useUnifiedTopology: true
   }
 )

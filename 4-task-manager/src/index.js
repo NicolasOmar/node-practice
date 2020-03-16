@@ -1,7 +1,7 @@
 const express = require('express')
 const chalk = require('chalk')
 // REQUIRE ALL 'MONGOOSE' CODE
-require('./mongoose')
+require('./db/mongoose')
 // IMPORT AND SET EXPRESS SERVER
 const app = express()
 const port = process.env.PORT || 3000
