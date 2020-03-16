@@ -27,7 +27,7 @@ In case you want to run all available commands on a row, execute the following c
 npm start
 ```
 
-## Repo Structure & what i learned
+## Repo Structure & what i learned in each exercise
  - Notes app ('1-notes' folder)
     - Export and import files
     - Npm packages management
@@ -61,10 +61,12 @@ npm start
     - Create documents relationships based on document´s ids, getting them by <Model.populate> and virtual fields
     - Use Timestamps to record create and update dates
     - Add filtering, pagination and sorting in a GET endpoint
+    - Upload files using [Multer](https://www.npmjs.com/package/multer)
+    - Handle images in an endpoint and save them in a Mongo database 
 
- ## Version (currently v0.3.5)
+## Version (currently v0.3.6)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 3 | How many exercices/apps i have completed |
-| 5 | How many times i have updated the next exercise/app |
+| 6 | How many times i have updated the next exercise/app |
