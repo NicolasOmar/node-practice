@@ -64,10 +64,11 @@ npm start
     - Upload files using [Multer](https://www.npmjs.com/package/multer)
     - Handle images in an endpoint and save them in a Mongo database
     - Use and implement environment variables with [env-cmd](https://www.npmjs.com/package/env-cmd)
+    - Unit testing with [Jest](https://jestjs.io/)
 
-## Version (currently v0.3.7)
+## Version (currently v0.3.8)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 3 | How many exercices/apps i have completed |
-| 7 | How many times i have updated the next exercise/app |
+| 8 | How many times i have updated the next exercise/app |
