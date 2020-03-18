@@ -1,3 +1,3 @@
 module.exports = {
-  calculateTip: (expense, percentage = 1) => expense + (expense * (percentage / 100))
+  calculateTip: (expense, percentage = 10) => expense + (expense * (percentage / 100))
 }

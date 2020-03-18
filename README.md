@@ -65,6 +65,7 @@ npm start
     - Handle images in an endpoint and save them in a Mongo database
     - Use and implement environment variables with [env-cmd](https://www.npmjs.com/package/env-cmd)
     - Unit testing with [Jest](https://jestjs.io/)
+    - Unit testing for API requests with [supertest](https://www.npmjs.com/package/supertest)
 
 ## Version (currently v0.3.8)
 | Number | Meaning |
