@@ -8,23 +8,25 @@ const Task = require('./task')
 const strings = require('../../configs/strings')
 
 const userSchema = new mongoose.Schema(
-  {
+	{
     name: {
-      type: String
+			type: String,
+			required: true,
+			trim: true
     },
     email: {
-      type: String,
+			type: String,
       unique: true, // CANNOT BE OTHER EQUAL THAT THIS VALUE
       required: true, // CANNOT AVOID INCLUDING THIS FIELD WHEN INSERT A NEW DOCUMENT
       trim: true, // REMOVE EMPTY SPACES BEFORE AND AFTER STRING
       lowercase: true, // CHANGE ENTIRE STRING INTO LOWERCASE
-      validate: (value) => {
-        if (!validator.isEmail(value)) {
-          throw new Error(strings.invalid.email)
-        }
-      }
-    },
-    age: {
+			validate(value) {
+				if (!validator.isEmail(value)) {
+					throw new Error(strings.invalid.email)
+				}
+			}
+		},
+		age: {
       type: Number,
       validate: (value) => {
         if (value <= 18) {
@@ -33,26 +35,28 @@ const userSchema = new mongoose.Schema(
       }
     },
     password: {
-      type: String,
-      trim: true,
-      validate: (value) => {
-        if (validator.contains(value, 'password') || value.lenght < 6) {
-          throw new Error(strings.invalid.password(6))
-        }
-      }
+			type: String,
+			required: true,
+			minlength: 6,
+			trim: true,
+			validate(value) {
+				if (value.toLowerCase().includes('password')) {
+					throw new Error(strings.invalid.password(6))
+				}
+			}
     },
     tokens: [{
-      token: {
-        type: String,
-        required: true
-      }
+			token: {
+				type: String,
+				required: true
+			}
     }],
     avatar: {
-      type: Buffer
+			type: Buffer
     }
-  }, {
-    timestamps: true // ADDED TO SET 'CREATEDAT' AND 'UPDATEDAT' FIELDS, HELPING SORTING FEATURE
-  }
+	}, {
+			timestamps: true
+	}
 )
 
 // VIRTUAL IS USED TO REALTE DOCUMENTS RELATED TO THIS USER (BUT ARE NOT RELATED BY PRIMARY/FOREIGN KEY RELATIONSHIP LIKE SQL)
@@ -66,55 +70,65 @@ userSchema.virtual(
 )
 
 userSchema.statics.findByCredentials = async (email, password) => {
-  const finded = await User.findOne({email})
-  
-  if (!finded) {
-    throw new Error(strings.unableLogin)
-  }
+	const finded = await User.findOne({ email })
 
-  const user = await bcrypt.compare(password, finded.password)
+	if (!finded) {
+		throw new Error(strings.unableLogin)
+	}
 
-  if (!user) {
-    throw new Error(strings.unableLogin)
-  }
+	const isMatch = await bcrypt.compare(password, finded.password)
 
-  return finded
+	if (!isMatch) {
+		throw new Error(strings.unableLogin)
+	}
+
+	return finded
 }
 
 // ACCESIBLE TO INSTANCE
 userSchema.methods.generateAuthToken = async function () {
-  const user = this
-  const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
+	const user = this
+	const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
 
-  user.tokens = user.tokens.concat({ token })
-  await user.save()
-  return token
+	user.tokens = user.tokens.concat({ token })
+	await user.save()
+	
+	return token
 }
 
 // ACCESIBLE TO MODEL. USED TO HASH THE PASSWORD BEFORE SAVING
 userSchema.pre(
-  'save',
-  async function (next) {
+	'save',
+	async function (next) {
     const user = this
 
     if (user.isModified('password')) {
-      user.password = await bcrypt.hash(user.password, 8)
+			user.password = await bcrypt.hash(user.password, 8)
     }
 
     next()
-  }
-)
+})
 
 // ACCESIBLE TO THE MODEL. USED TO DELETE ALL THE TASKS RELATED TO THIS USER (LIKE A CASCADE DELETE)
-userSchema.post(
-  'remove',
-  async function(next) {
+userSchema.pre(
+	'remove',
+	async function (next) {
     const user = this
-    await Task.deleteMany({ author: user._id })
+    await Task.deleteMany({ owner: user._id })
     next()
-  }
+	}
 )
 
+userSchema.methods.toJSON = function () {
+	const user = this
+	const userObject = user.toObject()
+
+	delete userObject.password
+	delete userObject.tokens
+	delete userObject.avatar
+
+	return userObject
+}
 const User = mongoose.model('User', userSchema)
 
 module.exports = User

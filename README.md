@@ -67,9 +67,9 @@ npm start
     - Unit testing with [Jest](https://jestjs.io/)
     - Unit testing for API requests with [supertest](https://www.npmjs.com/package/supertest)
 
-## Version (currently v0.3.8)
+## Version (currently v0.4.0)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
-| 3 | How many exercices/apps i have completed |
-| 8 | How many times i have updated the next exercise/app |
+| 4 | How many exercices/apps i have completed |
+| 0 | How many times i have updated the next exercise/app |
