@@ -69,10 +69,12 @@ npm start
     - Unit testing for API requests with [supertest](https://www.npmjs.com/package/supertest)
  - Chat app ('5-chat-app' folder)
     - WebSocket functionality with [Socket.io](https://www.npmjs.com/package/socket.io)
+    - Emit and send events with data (from client to server and visceversa)
+    - How to use [Gelocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) and send location on a Google Maps link
 
-## Version (currently v0.4.1)
+## Version (currently v0.4.2)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 4 | How many exercices/apps i have completed |
-| 1 | How many times i have updated the next exercise/app |
+| 2 | How many times i have updated the next exercise/app |

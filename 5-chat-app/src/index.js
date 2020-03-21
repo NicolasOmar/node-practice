@@ -23,30 +23,34 @@ app.get('', (request, response) => {
   response.render('index')
 })
 
-let count = 0
-
 // SOCKET.IO EXECUTES A FUNCTION WHEN A CLIENT IS CONNECTED
 io.on(
   'connection',
   (socket) => {
-    // FIRST IT WILL LOG THE SUCCESS IN THE SERVER
-    console.log('New WebSocket connection')
-    // AFTER THE CLIENT WILL GET A CONSOLE NOTIFICATION ABOUT THE COUNT STATUS
-    socket.emit('countUpdated', count)
+    // THE CLIENT WILL GET A CONSOLE NOTIFICATION WITH A WELCOME MESSAGE
+    socket.emit('sendMessage', strings.welcomeMsg)
+    // ALL THE CONNECTED USER (EXCEPT THE ONE IS BEEN CONNECTED) WILL RECIVE THE NEW MESSAGE
+    socket.broadcast.emit('sendMessage', strings.userJoined)
     
     // WHEN ANY CLIENT FIRES THE 'INCREMENT' EVENT (A CUSTOM ONE), THE SERVER WILL EXECUTE A FUNCTION
     socket.on(
-      'increment',
-      () => {
-        count++
-        /*
-          THIS EVENT IS SENDED TO EVERY CONNECTED CLIENT.
-          IF YOU WANT TO SENDED ONLY TO THE CLIENT WHO FIRE THE EVENT, USE THE FOLLOWING:
-          socket.emit('countUpdated', count)
-        */
-       io.emit('countUpdated', count)
-      }
+      'sendMessage',
+      (message) => io.emit('sendMessage', message)
+      /*
+        THIS EVENT IS SENDED TO EVERY CONNECTED CLIENT.
+        IF YOU WANT TO SENDED ONLY TO THE CLIENT WHO FIRE THE EVENT, USE THE FOLLOWING:
+        socket.emit('countUpdated', count)
+      */
     )
+    
+    // WHEN THE USER SENDS A 'sendLocation', IT WILL EMIT A MESSAGE TO THE OTHER CONNECTED USERS
+    socket.on(
+      'sendLocation',
+      (coords) => io.emit('sendMessage', strings.sendLocation(coords))
+    )
+
+    // WHEN THE USER HAS BEEN DISCONECTED, IT WILL SEND A MESSAGE TO THE OTHER USERS
+    socket.on('disconnect', () => io.emit('sendMessage', strings.userLeft))
   }
 )
 
