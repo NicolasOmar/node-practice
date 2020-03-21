@@ -16,6 +16,7 @@ Repository created to record my practice learning NodeJs with exercices based on
 | Weather console | npm run setup-weather-console |
 | Weather web | npm run setup-weather-web |
 | Task manager | npm run setup-task-manager |
+| Chat app | npm run setup-chat-app |
 
 ## How to run it
 To use any app, you just have to enter into it´s folder and run any of the scripts listed on it´s 'package.json' file. Each command runs with the following structure:
@@ -66,10 +67,12 @@ npm start
     - Use and implement environment variables with [env-cmd](https://www.npmjs.com/package/env-cmd)
     - Unit testing with [Jest](https://jestjs.io/)
     - Unit testing for API requests with [supertest](https://www.npmjs.com/package/supertest)
+ - Chat app ('5-chat-app' folder)
+    - WebSocket functionality with [Socket.io](https://www.npmjs.com/package/socket.io)
 
-## Version (currently v0.4.0)
+## Version (currently v0.4.1)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 4 | How many exercices/apps i have completed |
-| 0 | How many times i have updated the next exercise/app |
+| 1 | How many times i have updated the next exercise/app |
