@@ -3,5 +3,7 @@ module.exports = {
   welcomeMsg: 'Welcome to my chat application!',
   userJoined: 'A new user has joined',
   userLeft: 'A user has left!',
-  sendLocation: (coordinates) => `Location: http://google.com/maps?q=${coordinates.latitude},${coordinates.longitude}`
+  sendLocation: (coordinates) => `Location: http://google.com/maps?q=${coordinates.latitude},${coordinates.longitude}`,
+  msgDelivered: 'The message was delivered!',
+  locationShared: 'Location shared'
 }

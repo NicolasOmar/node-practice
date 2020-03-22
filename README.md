@@ -71,10 +71,12 @@ npm start
     - WebSocket functionality with [Socket.io](https://www.npmjs.com/package/socket.io)
     - Emit and send events with data (from client to server and visceversa)
     - How to use [Gelocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) and send location on a Google Maps link
+    - Event acknowledgments
+    - Render messages with [Mustache](https://www.npmjs.com/package/mustache)
 
-## Version (currently v0.4.2)
+## Version (currently v0.4.3)
 | Number | Meaning |
 | ------ | ------ |
 | 0 | Course has been not completed |
 | 4 | How many exercices/apps i have completed |
-| 2 | How many times i have updated the next exercise/app |
+| 3 | How many times i have updated the next exercise/app |
