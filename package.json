@@ -1,6 +1,6 @@
 {
   "name": "node-practice",
-  "version": "0.4.3",
+  "version": "1.0.0",
   "description": "Used to record practice of nodejs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -8,8 +8,8 @@
     "setup-weather-console": "cd ./2-weather-console && npm i",
     "setup-weather-web": "cd ./3-weather-web && npm i",
     "setup-task-manager": "cd ./4-task-manager && npm i",
-    "setup-chat-app": "cd ./4-chat-app && npm i",
-    "setup-all": "npm run setup-notes && npm run setup-weather-console && npm run setup-weather-web && npm run setup-task-manager && npm run setup-chat-app"
+    "setup-chat": "cd ./5-chat && npm i",
+    "setup-all": "npm run setup-notes && npm run setup-weather-console && npm run setup-weather-web && npm run setup-task-manager && npm run setup-chat"
   },
   "repository": {
     "type": "git",

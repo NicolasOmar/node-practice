@@ -3,7 +3,7 @@ Repository created to record my practice learning NodeJs with exercices based on
 
 ## Requirements
  - [Node](https://nodejs.org/en/download/) v10.16.3 or above
- - From the fourth excercise and above
+ - For fourth excercise only
    - [MongoDB](https://www.mongodb.com/download-center/community) v4.2.3 or above
    - [Robo 3T](https://robomongo.org/download) to visualize data
    - [Postman](https://www.postman.com/downloads/) to test endopints
@@ -16,7 +16,7 @@ Repository created to record my practice learning NodeJs with exercices based on
 | Weather console | npm run setup-weather-console |
 | Weather web | npm run setup-weather-web |
 | Task manager | npm run setup-task-manager |
-| Chat app | npm run setup-chat-app |
+| Chat | npm run setup-chat |
 
 ## How to run it
 To use any app, you just have to enter into it´s folder and run any of the scripts listed on it´s 'package.json' file. Each command runs with the following structure:
@@ -67,16 +67,13 @@ npm start
     - Use and implement environment variables with [env-cmd](https://www.npmjs.com/package/env-cmd)
     - Unit testing with [Jest](https://jestjs.io/)
     - Unit testing for API requests with [supertest](https://www.npmjs.com/package/supertest)
- - Chat app ('5-chat-app' folder)
-    - WebSocket functionality with [Socket.io](https://www.npmjs.com/package/socket.io)
+ - Chat app ('5-chat' folder)
+    - Create a project using WebSocket protocol with [Socket.io](https://www.npmjs.com/package/socket.io)
     - Emit and send events with data (from client to server and visceversa)
     - How to use [Gelocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) and send location on a Google Maps link
     - Event acknowledgments
     - Render messages with [Mustache](https://www.npmjs.com/package/mustache)
+    - Associate users in different channels/rooms and handle messages for specific channels
 
-## Version (currently v0.4.3)
-| Number | Meaning |
-| ------ | ------ |
-| 0 | Course has been not completed |
-| 4 | How many exercices/apps i have completed |
-| 3 | How many times i have updated the next exercise/app |
+## Version (currently v1.0.0)
+**Course has been completed on 22/03/2020**

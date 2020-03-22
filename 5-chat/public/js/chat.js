@@ -6,9 +6,13 @@ const $messageForm = document.querySelector('#message-form')
 const $messageFormInput = document.querySelector('input')
 const $locationButton = document.querySelector('#location-send-button')
 const $messages = document.querySelector('#messages')
+const $sidebar = document.querySelector('#sidebar')
 // DOM/SCRIPT TEMPLATES
 const messageTemplate = document.querySelector('#message-template').innerHTML
 const locationTemplate = document.querySelector('#location-template').innerHTML
+const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
+// OPTIONS
+const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true })
 
 socket.on(
   'sendMessage',
@@ -18,8 +22,9 @@ socket.on(
       Mustache.render(
         messageTemplate,
         {
-          createdAt: moment(message.createdAt).format('DD/MM/YYYY, HH:hh:ss'),
-          message: message.text
+          username: message.username,
+          message: message.text,
+          createdAt: moment(message.createdAt).format('DD/MM/YYYY, HH:hh:ss')
         }
       )
     // ADD RENDERED HTML IN THE MESSAGE DOM
@@ -29,23 +34,20 @@ socket.on(
 
 socket.on(
   'sendLocationMsg',
-  (location) => {
-    location = `${location.replace('Location: ', '')}`
+  (message) => {
     // RENDER THE DIV INSIDE SCRIPT AS A HTML USING MUSTACHE LIBRARY
     const html = 
       Mustache.render(
         locationTemplate,
-        { location }
+        { 
+          username: message.username,
+          location: `${message.text.replace('Location: ', '')}`,
+          createdAt: moment(message.createdAt).format('DD/MM/YYYY, HH:hh:ss')
+        }
       )
     // ADD RENDERED HTML IN THE MESSAGE DOM
     $messages.insertAdjacentHTML('beforeend', html)
   }
-)
-
-// WHEN THE CLIENT GETS CONNECTED, IT WILL GET A CONSOLE NOTIFICATION ABOUT THE STATUS (FIRED IN THE SERVER)
-socket.on(
-  'sendMessage',
-  (message) => console.log(message.text)
 )
 
 $messageForm.addEventListener(
@@ -93,5 +95,29 @@ $locationButton.addEventListener(
         )
       }
     )
+  }
+)
+
+socket.emit('join',{ username, room },
+  (error) => {
+    alert(error)
+    location.href= '/'
+  }
+)
+
+socket.on(
+  'roomData',
+  ({room, users}) => {
+    // RENDER THE DIV INSIDE SCRIPT AS A HTML USING MUSTACHE LIBRARY
+    const html = 
+      Mustache.render(
+        sidebarTemplate,
+        { 
+          room,
+          users
+        }
+      )
+    // ADD RENDERED HTML IN THE MESSAGE DOM
+    $sidebar.insertAdjacentHTML('beforeend', html)
   }
 )
