@@ -48,32 +48,32 @@ npm start
     - How to fetch data from the internal url (based on previous point) on a javascript file
     - Use user interaction (by a search form) to make API requests based on user data input and return a result
  - Task manager app ('4-task-manager' folder)
-    - How to create a Mongo database and connect from Node with [mongodb](https://www.npmjs.com/package/mongodb)
+    - How to create a Mongo database and connect it in Node with [mongodb](https://www.npmjs.com/package/mongodb)
     - How to handle CRUD operations (Create, Read, Update & Delete) in a Mongo database
     - Improve Mongo CRUD operations using a Object-document mapper with [mongoose](https://www.npmjs.com/package/mongoose)
     - Improve Mongoose model validations with [validator](https://www.npmjs.com/package/validator)
     - Create a REST API structure
     - Use promise chaining to avoid callback nesting
-    - How to use Async/Await functions
+    - How to use `Async/Await` functions
     - Use Mongoose middleware at Model and endpoint level
     - Use password encryption with [bcryptjs](https://www.npmjs.com/package/bcryptjs)
     - JWT (JSON Web Token) integration with [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
     - How to test API endpoints with [Postman](https://www.postman.com) (learning about Requests, Collections and Environments)
-    - Create documents relationships based on document´s ids, getting them by <Model.populate> and virtual fields
-    - Use Timestamps to record create and update dates
-    - Add filtering, pagination and sorting in a GET endpoint
+    - Create documents relationships based on document´s ids, getting them by `Model.populate` and virtual fields
+    - Use `timestamps` to record create and update dates
+    - Add filtering, pagination and sorting in a `GET` endpoint
     - Upload files using [Multer](https://www.npmjs.com/package/multer)
     - Handle images in an endpoint and save them in a Mongo database
     - Use and implement environment variables with [env-cmd](https://www.npmjs.com/package/env-cmd)
     - Unit testing with [Jest](https://jestjs.io/)
-    - Unit testing for API requests with [supertest](https://www.npmjs.com/package/supertest)
+    - API requests Unit testing with [supertest](https://www.npmjs.com/package/supertest)
  - Chat app ('5-chat' folder)
     - Create a project using WebSocket protocol with [Socket.io](https://www.npmjs.com/package/socket.io)
     - Emit and send events with data (from client to server and visceversa)
     - How to use [Gelocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) and send location on a Google Maps link
-    - Event acknowledgments
+    - Event acknowledgements
     - Render messages with [Mustache](https://www.npmjs.com/package/mustache)
     - Associate users in different channels/rooms and handle messages for specific channels
 
 ## Version (currently v1.0.0)
-**Course has been completed on 22/03/2020**
+**This course has been completed on 22/03/2020 - [Certificate](https://www.udemy.com/certificate/UC-8d302815-dafb-41c0-89f3-966ca887aa4c/)**
