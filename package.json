@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Used to record practice of nodejs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "setup-notes": "cd ./1-notes && npm i",
     "setup-weather-console": "cd ./2-weather-console && npm i",
     "setup-weather-web": "cd ./3-weather-web && npm i",
