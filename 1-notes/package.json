@@ -4,7 +4,6 @@
   "description": "First NodeJs app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run note-add && npm run note-read && npm run note-list && npm run note-remove && npm run note-list",
     "note-add": "node app.js add --title=\"Fisrt Title\" --body=\"Body for the test\" && node app.js add --title=\"Second Title\" --body=\"Body for the test\"",
     "note-remove": "node app.js remove --title=\"Fisrt Title\"",
