@@ -9,17 +9,24 @@ Repository created to record my practice learning NodeJs with exercises based on
    - [Postman](https://www.postman.com/downloads/) to test endopints
 
 ## Setup
+After cloning the repo, go to the created folder and install the node packages.
+```sh
+git clone https://github.com/NicolasOmar/node-practice.git
+cd node-practice
+npm run setup-all
+```
+`setup-all` is the command to install all the projects, but if you want to do it one by one, you can change that last line for one of the following:
 | App Setup | Command |
 | ------ | ------ |
-| All | npm run setup-all |
-| Notes | npm run setup-notes |
-| Weather console | npm run setup-weather-console |
-| Weather web | npm run setup-weather-web |
-| Task manager | npm run setup-task-manager |
-| Chat | npm run setup-chat |
+| All | `npm run setup-all` |
+| Notes | `npm run setup-notes` |
+| Weather console | `npm run setup-weather-console` |
+| Weather web | `npm run setup-weather-web` |
+| Task manager | `npm run setup-task-manager` |
+| Chat | `npm run setup-chat` |
 
 ## How to run it
-To use any app, you just have to enter into its folder and run any of the scripts listed on it´s 'package.json' file. Each command runs with the following structure:
+To use any app, you just have to enter into its folder and run any of the scripts listed on its 'package.json' file. Each command runs with the following structure:
 ```sh
 npm run <command-name>
 ```
@@ -71,7 +78,7 @@ npm start
     - Create a project using WebSocket protocol with [Socket.io](https://www.npmjs.com/package/socket.io)
     - Emit and send events with data (from client to server and visceversa)
     - How to use [Gelocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) and send location on a Google Maps link
-    - Event acknowledgements
+    - Event acknowledgments
     - Render messages with [Mustache](https://www.npmjs.com/package/mustache)
     - Associate users in different channels/rooms and handle messages for specific channels
 
