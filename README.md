@@ -1,10 +1,25 @@
-# Node Practice
+# <img src="https://cdn.simpleicons.org/node.js" title="Node Practice Repo" alt="Node Practice Repo" width="30"> Node Practice
 Repository created to record my practice learning NodeJs with exercises based on the [Udemy Course](https://www.udemy.com/course/the-complete-nodejs-developer-course-2) of [Andrew Mead](https://www.udemy.com/user/andrewmead/).
 
+## Table of contents
+- [Status](#status)
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [How to run it](#how-to-run-it)
+- [Repo structure & what i learned in each exercise](#repo-structure--what-i-learned-in-each-exercise)
+- [Other practice repos](#other-practice-repos)
+
+## Status
+- Current repo's version is ![Node practice version](https://img.shields.io/github/package-json/v/nicolasomar/node-practice?color=success&label=%20&style=flat-square)
+- **This course has been completed on 22/03/2020 - [Certificate](https://www.udemy.com/certificate/UC-8d302815-dafb-41c0-89f3-966ca887aa4c/)**
+
+### Why it has not any updated dependencies?
+After finishing its related Udemy course, I archive this repository and unarchive it when I start a new training and add a link in the [`Other practice repos`](#other-practice-repos) section referring to its new repo. But I don't update any associated dependency due to technology changes during the years between each practice, and the produced code which works with the mentioned [`requirements`](#requirements).
+
 ## Requirements
- - [Node](https://nodejs.org/en/download/) v10.16.3 or above
+ - [Node](https://nodejs.org/en/download/) `v10.16.3` or above
  - For fourth exercise only
-   - [MongoDB](https://www.mongodb.com/download-center/community) v4.2.3 or above
+   - [MongoDB](https://www.mongodb.com/download-center/community) `v4.2.3` or above
    - [Robo 3T](https://robomongo.org/download) to visualize data
    - [Postman](https://www.postman.com/downloads/) to test endopints
 
@@ -35,7 +50,7 @@ In case you want to run all available commands on a row, execute the following c
 npm start
 ```
 
-## Repo Structure & what i learned in each exercise
+## Repo structure & what i learned in each exercise
  - Notes app (`1-notes` folder)
     - Export and import files
     - Npm packages management
@@ -82,10 +97,7 @@ npm start
     - Render messages with [Mustache](https://www.npmjs.com/package/mustache)
     - Associate users in different channels/rooms and handle messages for specific channels
 
-## Version (currently v1.0.0)
-**This course has been completed on 22/03/2020 - [Certificate](https://www.udemy.com/certificate/UC-8d302815-dafb-41c0-89f3-966ca887aa4c/)**
-
-## Other Practice Repos
+## Other practice repos
 | React | Angular | GraphQL | Typescript | HTML & CSS |
 | :---: | :---: | :---: | :---: | :---: |
 | [<img src="https://cdn.simpleicons.org/react" title="React Practice Repo" alt="React Practice Repo" width="48px">](https://github.com/NicolasOmar/react-practice) | [<img src="https://cdn.simpleicons.org/angular" title="Angular Practice Repo" alt="Angular Practice Repo" width="48px">](https://github.com/NicolasOmar/angular-practice) | [<img src="https://cdn.simpleicons.org/graphql" title="GraphQL Practice Repo" alt="GraphQL Practice Repo" width="48px">](https://github.com/NicolasOmar/graphql-practice) | [<img src="https://cdn.simpleicons.org/typescript" title="Typescript Practice Repo" alt="Typescript Practice Repo" width="48px">](https://github.com/NicolasOmar/typescript-practice) | [<img src="https://cdn.simpleicons.org/html5" title="HTML and CSS Practice Repo" alt="HTML and CSS Practice Repo" width="48px">](https://github.com/NicolasOmar/html-css-practice) |
